@@ -1,0 +1,150 @@
+.my_modal {
+  .modal-dialog {
+    .modal-content {
+      background-color: rgb(46 46 46);
+      color: #fff;
+      .modal-body {
+        .my_container {
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+          position: relative;
+          color: white;
+          margin: 20px 0px;
+
+          .label {
+            font-size: 15px;
+            padding-left: 10px;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            transition: 0.3s;
+            pointer-events: none;
+          }
+        }
+
+        .input {
+          width: 100%;
+          height: 45px;
+          border: none;
+          outline: none;
+          padding: 0 7px;
+          border-radius: 6px;
+          color: #fff;
+          font-size: 15px;
+          background-color: transparent;
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+            -1px -1px 6px rgba(255, 255, 255, 0.4);
+
+          &:focus {
+            border: 2px solid transparent;
+            color: #fff;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+              -1px -1px 6px rgba(255, 255, 255, 0.4),
+              inset 3px 3px 10px rgba(0, 0, 0, 1),
+              inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+
+            & ~ .label {
+              transition: 0.3s;
+              padding-left: 2px;
+              transform: translateY(-35px);
+            }
+          }
+
+          &:valid ~ .label {
+            transition: 0.3s;
+            padding-left: 2px;
+            transform: translateY(-35px);
+          }
+
+          &:valid,
+          &:focus {
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+              -1px -1px 6px rgba(255, 255, 255, 0.4),
+              inset 3px 3px 10px rgba(0, 0, 0, 1),
+              inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+          }
+        }
+        .error {
+          position: absolute;
+          bottom: -20px;
+          color: red;
+          font-size: 12px;
+          margin-top: 5px;
+        }
+      }
+      .modal-footer {
+        border-top: 0px;
+        .my_button {
+          all: unset;
+          display: flex;
+          align-items: center;
+          position: relative;
+          padding: 5px 20px;
+          border: #57eeee solid 0.15em;
+          border-radius: 0.25em;
+          color: #57eeee;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          overflow: hidden;
+          transition: border 300ms, color 300ms;
+          user-select: none;
+
+          p {
+            z-index: 1;
+            margin: 0;
+          }
+
+          &:hover {
+            color: #212121;
+          }
+
+          &:active {
+            border-color: teal;
+          }
+
+          &::after,
+          &::before {
+            content: "";
+            position: absolute;
+            width: 9em;
+            aspect-ratio: 1;
+            background: #57eeee;
+            opacity: 50%;
+            border-radius: 50%;
+            transition: transform 500ms, background 300ms;
+          }
+
+          &::before {
+            left: 0;
+            transform: translateX(-8em);
+          }
+
+          &::after {
+            right: 0;
+            transform: translateX(8em);
+          }
+
+          &:hover::before {
+            transform: translateX(-1em);
+          }
+
+          &:hover::after {
+            transform: translateX(1em);
+          }
+
+          &:active::before,
+          &:active::after {
+            background: teal;
+          }
+        }
+        .disable_me {
+          pointer-events: none;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
